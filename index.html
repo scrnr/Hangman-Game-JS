@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='eu'>
+
+<head>
+    <meta charset='UT-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='assets/css/game.min.css'>
+    <title>Hangman</title>
+</head>
+
+<body>
+    <div class='screen-box' id='screen-box'>
+
+        <div class='screen screen__one' id='screen-one'>
+            <div class='container'>
+                <h1 class='screen__title'>Hangman</h1>
+                <button type='button' id='btn-start' class='btn btn__start'>Start game</button>
+            </div>
+        </div>
+
+        <div class='screen screen__game' id='screen-game'>
+            <div class='container'>
+                <div class='game__field' id='game'>
+
+                    <canvas class='game__canvas' id='canvas'>
+                        Your browser doesn't support HTML5 canvas.
+                    </canvas>
+
+                    <div class='game__info-box'>
+                        <p class='game__lives-left'>Lives left: <span class='lives-count' id='lives-left'></span></p>
+                        <p class='game__word-preview' id='word-preview'></p>
+                    </div>
+
+                    <div class='game__alphabet' id='alphabet'></div>
+                    <button type='button' id='new-word-btn' class='btn btn__new-word-btn'>New word</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src='assets/js/main.js'></script>
+</body>
+
+</html>
