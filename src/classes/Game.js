@@ -80,7 +80,6 @@ class Game {
         }
 
         let index = this.#getIndex(words);
-
         let word = words[index];
 
         while (word.length > 12) {
