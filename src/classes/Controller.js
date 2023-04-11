@@ -18,7 +18,7 @@ class Controller {
         this.#view.renderWordPreview(state.letters);
         this.#view.renderLivesLeft(state.livesLeft);
 
-        this.#alphabetBtns.forEach((letter) => {
+        this.#alphabetBtns.forEach((letter, index) => {
             letter.onclick = () => {
                 const response = this.#game.hasLetter(letter.value);
                 this.#hasLetterHandler(response, index);
