@@ -25,6 +25,8 @@
             }
         }
     }
+
+    @include getAnimationGameOverScreen(100, 60);
 }
 
 @media screen and (min-width: 767px) {

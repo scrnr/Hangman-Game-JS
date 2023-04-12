@@ -1,4 +1,5 @@
 @import 'extends';
+@import 'animation';
 
 * {
     margin: 0;
@@ -70,6 +71,7 @@ body {
 
             &::before {
                 @extend %before;
+                @include animation('loading', 1.5s, infinite);
                 width: 35px;
                 height: 35px;
                 z-index: 2;
@@ -174,9 +176,9 @@ body {
 
     &__game-over {
         @include transition((all:0.3s));
+        @include animation('game-over', 0.6s, 1);
         display: none;
         position: absolute;
-        transform: translate(75px, 40px) rotate(-35deg) scale(1);
         opacity: 0;
         padding: 5px;
         z-index: -5;

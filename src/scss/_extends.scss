@@ -60,6 +60,16 @@
     height: $size + 70;
 }
 
+@mixin animation($name, $duration, $iteration) {
+    animation: {
+        name: #{$name};
+        duration: $duration;
+        timing-function: linear;
+        iteration-count: $iteration;
+        fill-mode: forwards;
+    }
+}
+
 $bg-color: #e5e1e1;
 $field-bg-color: #c4a5d9;
 $field-size: 300px;

@@ -1,0 +1,33 @@
+@mixin getAnimationGameOverScreen($translateX, $translateY) {
+    @keyframes game-over {
+        @each $persent, $scale in $scales {
+            #{$persent + '%'} {
+                transform: translate(#{$translateX + 'px'}, #{$translateY + 'px'}) rotate(#{$rotate + 'deg'}) scale($scale);
+            }
+        }
+    }
+}
+
+$rotate: -35;
+$scales: (
+    0: 10,
+    55: 1,
+    72: 1.3,
+    80: 1,
+    90: 1.1,
+    100: 1
+);
+
+@include getAnimationGameOverScreen(75, 45);
+
+@keyframes loading {
+    $translate: translate(-50%, -50%);
+
+    0% {
+        transform: $translate rotate(0);
+    }
+
+    100% {
+        transform: $translate rotate(360deg);
+    }
+}
