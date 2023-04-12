@@ -1,5 +1,6 @@
 @mixin getAnimationGameOverScreen($translateX, $translateY) {
     @keyframes game-over {
+
         @each $persent, $scale in $scales {
             #{$persent + '%'} {
                 transform: translate(#{$translateX + 'px'}, #{$translateY + 'px'}) rotate(#{$rotate + 'deg'}) scale($scale);

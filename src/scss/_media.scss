@@ -29,8 +29,12 @@
     @include getAnimationGameOverScreen(100, 60);
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 767px) and (min-height: 570px) {
     $field-size: 500px;
+
+    .btn__new-word-btn {
+        margin-top: 0;
+    }
 
     .game {
         &__field {
@@ -57,39 +61,98 @@
             }
         }
     }
+
+    @include getAnimationGameOverScreen(120, 85);
 }
 
-// @media screen and (max-height: 360px) {
-//     .game {
-//         &__field {
-//             width: 410px;
-//             height: 290px;
-//             padding-bottom: 15px;
-//         }
+@media screen and (min-width: 1023px) {
+    $field-size: 600px;
 
-//         &__info-box {
-//             width: 45%;
-//             position: absolute;
-//             top: 10px;
-//             right: 0;
-//         }
+    .btn__new-word-btn {
+        padding: 7px 15px;
+    }
 
-//         &__word-preview {
-//             flex-wrap: wrap;
+    .game {
+        &__field {
+            @include field-size($field-size);
+        }
+    
+        &__word-preview {
+            gap: 15px;
+        }
 
-//             &>.letter {
-//                 font-size: 18px;
-//             }
-//         }
+        &__alphabet {
+            grid-template-columns: repeat(7, 45px);
 
-//         &__alphabet {
-//             grid-template-columns: repeat(9, 30px);
-//             gap: 10px;
+            &>.alphabet-item {
+                width: 40px;
+                height: 40px;
+                font-size: 23px;
+                line-height: 23px;
 
-//             &>.alphabet-item:nth-child(22) {
-//                 grid-column: auto;
+                &.uncorrect {
+                    &::before,
+                    &::after {
+                        top: 17px;
+                    }
+                }
+            }
+        }
+    }
 
-//             }
-//         }
-//     }
-// }
+    @include getAnimationGameOverScreen(160, 90);
+}
+
+@media screen and (max-height: 400px) {
+    .game {
+        &__field {
+            width: 410px;
+            height: 290px;
+            padding-bottom: 15px;
+        }
+
+        &__canvas {
+            align-self: flex-start;
+            width: 60%;
+            height: 40%;
+        }
+
+        &__info-box {
+            width: 40%;
+            position: absolute;
+            top: 10px;
+            right: 0;
+        }
+
+        &__lives-left {
+            font-size: 16px;
+        }
+
+        &__word-preview {
+            width: 70%;
+
+            &>.letter {
+                font-size: 15px;
+            }
+        }
+
+        &__alphabet {
+            grid-template-columns: repeat(9, 30px);
+            gap: 10px;
+
+            &>.alphabet-item:nth-child(22) {
+                grid-column: auto;
+            }
+        }
+
+        &__game-over {
+            border-width: 2px;
+
+            &>.game-over-title {
+                font-size: 17px;
+            }
+        }
+    }
+
+    @include getAnimationGameOverScreen(-20, 35);
+}

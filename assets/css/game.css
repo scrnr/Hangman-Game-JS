@@ -170,6 +170,12 @@ body {
   border-radius: 50%;
   border-right-color: transparent;
 }
+.game__canvas {
+  width: 100%;
+  height: 40%;
+  border: 3px solid #808080;
+  border-radius: 10px;
+}
 .game__info-box {
   display: flex;
   align-items: center;
@@ -179,16 +185,16 @@ body {
   width: 90%;
 }
 .game__lives-left {
-  font-size: calc(15px + 11.9 * ((100vw - 320px) / 1024));
+  font-size: calc(15px + 17 * ((100vw - 320px) / 1024));
 }
 @media screen and (min-width: 767px) {
   .game__lives-left {
-    font-size: calc(15px + 7 * (100vw / 1024));
+    font-size: calc(15px + 10 * (100vw / 1024));
   }
 }
 @media screen and (min-width: 1024px) {
   .game__lives-left {
-    font-size: 22px;
+    font-size: 25px;
   }
 }
 .game__lives-left > .lives-count {
@@ -199,21 +205,21 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  flex-wrap: wrap;
   width: 100%;
   min-height: 23px;
-  margin-bottom: 10px;
 }
 .game__word-preview > .letter {
-  font-size: calc(20px + 17 * ((100vw - 320px) / 1024));
+  font-size: calc(20px + 22.1 * ((100vw - 320px) / 1024));
 }
 @media screen and (min-width: 767px) {
   .game__word-preview > .letter {
-    font-size: calc(20px + 10 * (100vw / 1024));
+    font-size: calc(20px + 13 * (100vw / 1024));
   }
 }
 @media screen and (min-width: 1024px) {
   .game__word-preview > .letter {
-    font-size: 30px;
+    font-size: 33px;
   }
 }
 .game__word-preview > .letter.not-guessed {
@@ -276,16 +282,16 @@ body {
   border-radius: 10px;
 }
 .game__game-over > .game-over-title {
-  font-size: calc(24px + 27.2 * ((100vw - 320px) / 1024));
+  font-size: calc(24px + 35.7 * ((100vw - 320px) / 1024));
 }
 @media screen and (min-width: 767px) {
   .game__game-over > .game-over-title {
-    font-size: calc(24px + 16 * (100vw / 1024));
+    font-size: calc(24px + 21 * (100vw / 1024));
   }
 }
 @media screen and (min-width: 1024px) {
   .game__game-over > .game-over-title {
-    font-size: 40px;
+    font-size: 45px;
   }
 }
 .game__game-over.show {
@@ -333,7 +339,10 @@ body {
     }
   }
 }
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 767px) and (min-height: 570px) {
+  .btn__new-word-btn {
+    margin-top: 0;
+  }
   .game__field {
     width: 510px;
     height: 570px;
@@ -351,5 +360,129 @@ body {
   }
   .game__alphabet > .alphabet-item.uncorrect::before, .game__alphabet > .alphabet-item.uncorrect::after {
     top: 15px;
+  }
+  @keyframes game-over {
+    0% {
+      transform: translate(120px, 85px) rotate(-35deg) scale(10);
+    }
+    55% {
+      transform: translate(120px, 85px) rotate(-35deg) scale(1);
+    }
+    72% {
+      transform: translate(120px, 85px) rotate(-35deg) scale(1.3);
+    }
+    80% {
+      transform: translate(120px, 85px) rotate(-35deg) scale(1);
+    }
+    90% {
+      transform: translate(120px, 85px) rotate(-35deg) scale(1.1);
+    }
+    100% {
+      transform: translate(120px, 85px) rotate(-35deg) scale(1);
+    }
+  }
+}
+@media screen and (min-width: 1023px) {
+  .btn__new-word-btn {
+    padding: 7px 15px;
+  }
+  .game__field {
+    width: 610px;
+    height: 670px;
+  }
+  .game__word-preview {
+    gap: 15px;
+  }
+  .game__alphabet {
+    grid-template-columns: repeat(7, 45px);
+  }
+  .game__alphabet > .alphabet-item {
+    width: 40px;
+    height: 40px;
+    font-size: 23px;
+    line-height: 23px;
+  }
+  .game__alphabet > .alphabet-item.uncorrect::before, .game__alphabet > .alphabet-item.uncorrect::after {
+    top: 17px;
+  }
+  @keyframes game-over {
+    0% {
+      transform: translate(160px, 90px) rotate(-35deg) scale(10);
+    }
+    55% {
+      transform: translate(160px, 90px) rotate(-35deg) scale(1);
+    }
+    72% {
+      transform: translate(160px, 90px) rotate(-35deg) scale(1.3);
+    }
+    80% {
+      transform: translate(160px, 90px) rotate(-35deg) scale(1);
+    }
+    90% {
+      transform: translate(160px, 90px) rotate(-35deg) scale(1.1);
+    }
+    100% {
+      transform: translate(160px, 90px) rotate(-35deg) scale(1);
+    }
+  }
+}
+@media screen and (max-height: 400px) {
+  .game__field {
+    width: 410px;
+    height: 290px;
+    padding-bottom: 15px;
+  }
+  .game__canvas {
+    align-self: flex-start;
+    width: 60%;
+    height: 40%;
+  }
+  .game__info-box {
+    width: 40%;
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
+  .game__lives-left {
+    font-size: 16px;
+  }
+  .game__word-preview {
+    width: 70%;
+  }
+  .game__word-preview > .letter {
+    font-size: 15px;
+  }
+  .game__alphabet {
+    grid-template-columns: repeat(9, 30px);
+    gap: 10px;
+  }
+  .game__alphabet > .alphabet-item:nth-child(22) {
+    grid-column: auto;
+  }
+  .game__game-over {
+    border-width: 2px;
+  }
+  .game__game-over > .game-over-title {
+    font-size: 17px;
+  }
+  @keyframes game-over {
+    0% {
+      transform: translate(-20px, 35px) rotate(-35deg) scale(10);
+    }
+    55% {
+      transform: translate(-20px, 35px) rotate(-35deg) scale(1);
+    }
+    72% {
+      transform: translate(-20px, 35px) rotate(-35deg) scale(1.3);
+    }
+    80% {
+      transform: translate(-20px, 35px) rotate(-35deg) scale(1);
+    }
+    90% {
+      transform: translate(-20px, 35px) rotate(-35deg) scale(1.1);
+    }
+    100% {
+      transform: translate(-20px, 35px) rotate(-35deg) scale(1);
+    }
   }
 }
