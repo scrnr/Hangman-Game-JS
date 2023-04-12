@@ -36,7 +36,20 @@ class Controller {
             this.#view.renderLivesLeft(state.livesLeft);
         }
 
+        if (response.success) {
+            this.#removeClickHandler();
 
+            switch (response.result) {
+                case 'win':
+                    console.log('win');
+                    // win
+                    break;
+                case 'game-over':
+                    console.log('game-over');
+                    this.#view.renderGameOverScreen(state.letters);
+                    break;
+            }
+        }
     }
 
     #getAlphabet() {
@@ -53,5 +66,9 @@ class Controller {
         });
 
         return readyAlphabet;
+    }
+
+    #removeClickHandler() {
+        this.#alphabetBtns.forEach(letter => letter.onclick = null);
     }
 }

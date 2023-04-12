@@ -43,6 +43,18 @@ class View {
         this.#livesLeft.textContent = count <= 0 ? 0 : count;
     }
 
+    renderGameOverScreen(letters) {
+        letters.forEach((letter, index) => {
+            if (letter) {
+                const letterNotGuess = this.#wordPreview.children[index];
+                letterNotGuess.classList.add('not-guessed');
+                letterNotGuess.innerHTML = letter.toUpperCase();
+            }
+        });
+
+        this.#gameOverScreen.classList.add('show');
+    }
+
     addTheClassToTheButton(index, className) {
         const btn = this.#alphabetBtns[index];
         btn.classList.add(className);
@@ -51,6 +63,7 @@ class View {
 
     #reset() {
         this.#field.classList.add('loading');
+        this.#gameOverScreen.classList.remove('show');
         this.#alphabet.innerHTML = '';
         this.#clearWordPreview();
 
