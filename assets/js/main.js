@@ -4,10 +4,9 @@ const newWordBtn = document.getElementById('new-word-btn');
 
 const game = new Game();
 const view = new View(gameField);
-const controller = new Controller(game, view);
+const coordinates = new Coordinates();
+const controller = new Controller(game, view, coordinates);
 
 gameStartBtn.onclick = () => controller.startGame();
 
-newWordBtn.onclick = () => {
-    // restart
-}
+newWordBtn.onclick = () => controller.startGame();

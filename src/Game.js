@@ -73,11 +73,11 @@ class Game {
 
         let words = [];
 
-        if (response.ok) {
-            words = await response.json();
-        } else {
+        // if (response.ok) {
+        //     words = await response.json();
+        // } else {
             words = ['error'];
-        }
+        // }
 
         let index = this.#getIndex(words);
         let word = words[index];
