@@ -1,0 +1,93 @@
+@media screen and (min-width: 424px) and (min-height: 470px) {
+    $field-size: 400px;
+
+    .game {
+        &__field {
+            @include field-size($field-size);
+        }
+
+        &__alphabet {
+            grid-template-columns: repeat(7, 35px);
+            gap: 10px;
+
+            &>.alphabet-item {
+                width: 30px;
+                height: 30px;
+                font-size: 18px;
+                line-height: 18px;
+
+                &.uncorrect {
+                    &::before,
+                    &::after {
+                        top: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 767px) {
+    $field-size: 500px;
+
+    .game {
+        &__field {
+            @include field-size($field-size);
+            padding-bottom: 20px;
+        }
+
+        &__alphabet {
+            grid-template-columns: repeat(7, 40px);
+            gap: 15px;
+
+            &>.alphabet-item {
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
+                line-height: 20px;
+
+                &.uncorrect {
+                    &::before,
+                    &::after {
+                        top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// @media screen and (max-height: 360px) {
+//     .game {
+//         &__field {
+//             width: 410px;
+//             height: 290px;
+//             padding-bottom: 15px;
+//         }
+
+//         &__info-box {
+//             width: 45%;
+//             position: absolute;
+//             top: 10px;
+//             right: 0;
+//         }
+
+//         &__word-preview {
+//             flex-wrap: wrap;
+
+//             &>.letter {
+//                 font-size: 18px;
+//             }
+//         }
+
+//         &__alphabet {
+//             grid-template-columns: repeat(9, 30px);
+//             gap: 10px;
+
+//             &>.alphabet-item:nth-child(22) {
+//                 grid-column: auto;
+
+//             }
+//         }
+//     }
+// }

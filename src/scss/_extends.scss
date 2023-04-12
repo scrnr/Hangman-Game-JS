@@ -4,7 +4,7 @@
     justify-content: #{$justify};
 
     @each $key, $value in $options {
-        @if $key == 'gap' {
+        @if $key =='gap' {
             #{$key}: $value;
         } @else {
             #{'flex-' + $key}: $value;
@@ -18,11 +18,11 @@
     justify-items: #{$justify};
 
     @each $key, $value in $options {
-        @if $key == 'columns' {
+        @if $key =='columns' {
             grid-template-columns: $value;
-        } @else if $key == 'rows' {
+        } @else if $key =='rows' {
             grid-template-rows: $value;
-        } @else if $key == 'gap' {
+        } @else if $key =='gap' {
             #{$key}: $value;
         } @else {
             #{'grid-' + $key}: $value;
@@ -34,25 +34,25 @@
     $size-diff: $max - $min;
     $size-diff-mobile: $size-diff * 1.7;
 
-    font-size: calc(#{$min + px} + #{$size-diff-mobile} * ((100vw - 320px) / 1024));
+    font-size: calc(#{$min + 'px'} + #{$size-diff-mobile} * ((100vw - 320px) / 1024));
 
     @media screen and (min-width: 767px) {
-        font-size: calc(#{$min + px} + #{$size-diff} * (100vw / 1024));
+        font-size: calc(#{$min + 'px'} + #{$size-diff} * (100vw / 1024));
     }
 
     @media screen and (min-width: 1024px) {
-        font-size: #{$max + px};
+        font-size: #{$max + 'px'};
     }
 }
 
 @mixin transition($properties, $timing: ease-in-out) {
-    $string: '';
+    $readyProperties: '';
 
     @each $key, $value in $properties {
-        $string: #{$string + ' ' + $key + ' ' + $value};
+        $readyProperties: #{$readyProperties + ' ' + $key + ' ' + $value};
     }
 
-    transition: $string $timing;
+    transition: $readyProperties $timing;
 }
 
 @mixin field-size($size) {

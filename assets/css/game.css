@@ -192,13 +192,13 @@ body {
   justify-items: center;
   grid-template-columns: repeat(7, 30px);
   gap: 5px;
-  width: 80%;
 }
 .game__alphabet > .alphabet-item {
   width: 25px;
   height: 25px;
   position: relative;
   font-size: 15px;
+  line-height: 15px;
   background-color: transparent;
   border: 1px solid #8a8a8a;
   border-radius: 50%;
@@ -255,4 +255,44 @@ body {
   display: block;
   z-index: 1;
   opacity: 1;
+}
+
+@media screen and (min-width: 424px) and (min-height: 470px) {
+  .game__field {
+    width: 410px;
+    height: 470px;
+  }
+  .game__alphabet {
+    grid-template-columns: repeat(7, 35px);
+    gap: 10px;
+  }
+  .game__alphabet > .alphabet-item {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .game__alphabet > .alphabet-item.uncorrect::before, .game__alphabet > .alphabet-item.uncorrect::after {
+    top: 12px;
+  }
+}
+@media screen and (min-width: 767px) {
+  .game__field {
+    width: 510px;
+    height: 570px;
+    padding-bottom: 20px;
+  }
+  .game__alphabet {
+    grid-template-columns: repeat(7, 40px);
+    gap: 15px;
+  }
+  .game__alphabet > .alphabet-item {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    line-height: 20px;
+  }
+  .game__alphabet > .alphabet-item.uncorrect::before, .game__alphabet > .alphabet-item.uncorrect::after {
+    top: 15px;
+  }
 }
