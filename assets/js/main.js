@@ -1,3 +1,9 @@
+import Controller from '../../src/Controller.js';
+import Coordinates from '../../src/Coordinates.js';
+import Game from '../../src/Game.js';
+import View from '../../src/View.js';
+
+
 const gameField = document.getElementById('game');
 const gameStartBtn = document.getElementById('btn-start');
 const newWordBtn = document.getElementById('new-word-btn');

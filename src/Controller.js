@@ -1,4 +1,4 @@
-class Controller {
+export default class Controller {
     #coords = null;
     #game = null;
     #view = null;

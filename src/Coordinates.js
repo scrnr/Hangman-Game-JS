@@ -1,9 +1,10 @@
-class Coordinates {
+export default class Coordinates {
     getHangmanCoords() {
         return {
             options: {
                 lineWidth: 8,
-                lineCap: 'round'
+                lineCap: 'round',
+                strokeStyle: '#784717'
             },
             coords: [
                 this.#getCoords(30, 170, 280, 280, 30),
