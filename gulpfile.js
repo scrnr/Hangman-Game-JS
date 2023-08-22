@@ -17,11 +17,11 @@ export const watch = taskWatch;
 
 export const build = modules.gulp.series(
     cleanDir,
-    sprites,
+    // sprites,
     modules.gulp.parallel(
         scripts,
         styles,
-        imagemin
+        // imagemin
     )
 );
 

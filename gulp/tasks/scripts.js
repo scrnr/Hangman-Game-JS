@@ -2,6 +2,7 @@ import { isBuild } from '../../gulpfile.js';
 import { modules } from '../imports.js';
 import { paths } from '../config/paths.js';
 import { jsToOneFile, isTS, webpackSettings, outputFileName } from '../config/settings.js';
+import { replace } from '../config/replace.js';
 
 /**
  * Creates the path for scripts files
@@ -66,6 +67,24 @@ export const taskScripts = () => {
                 extensions: webpackSettings.extensions
             }
         }))
+        .pipe(
+            modules.gulpIf(
+                replace.scripts.img,
+                modules.replace(
+                    replace.scripts.img.regex,
+                    replace.scripts.img.replacement
+                )
+            )
+        )
+        .pipe(
+            modules.gulpIf(
+                replace.scripts.icons,
+                modules.replace(
+                    replace.scripts.icons.regex,
+                    replace.scripts.icons.replacement
+                )
+            )
+        )
         .pipe(modules.gulpIf(
             isBuild,
             modules.uglify()

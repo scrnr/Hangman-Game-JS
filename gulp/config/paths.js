@@ -3,15 +3,15 @@
  */
 export const paths = {
     styles: {
-        src: '/src/scss/*.*',
-        dest: '/assets/css/',
-        watch: '/src/scss/**/*.*',
+        src: 'src/scss/*.*',
+        dest: 'assets/css/',
+        watch: 'src/scss/**/*.*',
         ignore: ''
     },
     scripts: {
-        src: '/src/ts/*.*',
-        dest: '/assets/js/',
-        watch: '/src/ts/**/*.*',
+        src: 'src/ts/*.*',
+        dest: 'assets/js/',
+        watch: 'src/ts/**/*.*',
         ignore: ''
     },
     sprites: {
